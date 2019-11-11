@@ -1,0 +1,144 @@
+O objetivo do programa é para ser um sistema de controle de custos. O usuário vai cadastrando os custos
+de suas despesas e é cadastrado no sistema todos esses dados.
+
+A árvore vermelho e preta é supostamente o que guarda a conta de todos os usuários.
+
+Lembrando que a árvore foi guardada através da biblicoteca nativa do python : pickle
+
+Inicialmente o Usuário tem que se cadastrar colocando seus dados e logo após seus login e senha.
+
+Assim é adicionado à árvore o usuário, portanto há a chamada do RB_insert() da pasta passwords/Passwords_data.py
+
+Há uma outra árvore, porém essa é a uma normal. Ela é fixa e não há alteração  - ou seja não há inserção ou remoção-
+por isso o motivo de utilizar uma arvore normal.
+Essa árvore guarda todas as depesas como 'data', e dentro de cada nó há quatro arranjos, sendo dois deles guardando a 
+quantidade total de dados colocado no mês e dados colocado no ano, e os outros dois são a média de todos esse dados,mensal e anual.
+
+Para retirar dados da árvore vermelho e preta, foi criada uma conta de administrador a qual tem um botão que tem o controle de todos os usuários,
+assim tem como ele retirar um usuário do sistema, o que seria equivalente a um banimento no programa. A função q executa é RB_delete
+Para acessar o administrador logue com :
+Login: administrator
+senha: administrator
+
+Caso queira ver a arvore vermelho e preta no console, abra Interface.py e feche o programa tkinter que foi aberto. Logo após execute esse comando no Shell:
+Arvore = pickle.load(open('passwords/Users.txt','rb'))
+
+Na hora de adicionar dados ano/mes, na janela de Gastos. A opção 0 como valor equivale a retirar o dado do sistema na posição que está o ano e mes.
+
+O objetivo pessoal do projeto era tentar fazer um programa que pudesse criar um programa complexo utilizando uma árvore vermelho e preta. Por motivos de tempo e manipulação
+de dados não foi possível finalizar-lo. Porém é considerado que o objetivo do projeto foi sancionado - usar a árvore vermelho e preta como banco de dados para um sistema- , pois
+a função de inserir e deletar está bém definida no programa.
+
+Boa parte do projeto é desenvolvida pelo Tkinter, a interface gráfica do python. Não considero necessário explicar o que cada linha faz para não haver uma análise cansativa, porém 
+há comentários dizendo o que cada função faz, anexada abaixo e no próprio código.
+
+O programa não está 100% como planejado, pois falta ainda desenvolver o botão de controle de gastos, a qual seria uma opção para que 
+o usuário pudesse comparar seus gastos com pessoa da mesma região(Tanto cidade,tanto bairro) e assim teria um parametro de quanto ela ta gastando. Nessa opção
+também iria demostrar como o usuário poderia economizar em certas despesas.
+
+
+
+Para executa o programa execute o Interface.py
+
+class Interface(object):
+
+    def __init__(self,root):
+        'Método Construtor que cria a tela de login inicial'
+
+    def Entrar_system(self):
+        'Método para entrar no sistema'
+
+    def button_cadastrar(self):
+        'Método para pedir os dados dos usuario'
+    
+    def create_account(self):
+        'Método que pergunta os novos dados'
+
+    def adicionar_banco(self):
+        'Adicionar os dados a árvore vermelho e preto'
+
+
+
+
+
+class Main_Window(object):
+
+    def __init__(self,root,User,Tree):
+        'Método construtor menu do programa'
+
+    def Gastos(self):
+        'A opção Gastos do programa 1º botão'
+      
+    def add_atribute(self):
+        'Adicionar um tipo de despesa'
+
+    def remove_atribute(self):
+        'Remover um tipo de despesa'
+    
+    def create_gasto(self, bol = True):
+        'Método que entrar nas opções da despesa entrada: (aqui mostra os anos e meses)'
+            
+    def add_subatribute(self):
+        'Método para adicionar valor novo no respectivo ano/mes e adiciona a outra árvore que guarda as média'
+
+    def Tabela(self):  
+        'Método para botão de gerar tabela'
+
+    def Search_Graph(self, **kwargs):
+        'Método para fazer o filtro de qual ano/mes vai gerar grafico'
+
+    def adminstrator_screen(self):
+        'Método do botão de administrador'
+
+    def delete(self,level,k):
+        'Método para retirar o usuario da arvore vermelho e preto'
+
+
+
+class Binary_tree_Login:
+
+                      
+    def RB_insert(self,login,senha,nome,idade,email,localidade):
+        'Método de inserir'
+
+
+    def RB_insert_fixup(self,z):
+        'Método de fixup de inserir'
+        
+    def RB_delete(self,nodule): 
+        'Método de deletar'
+
+
+    def RB_DELETE_FIXUP(self,x):
+        'Fixup do deletar arvore vermelho e preto'
+  
+
+    def isleft(self,nodule):
+        Confere se o no é filho esquerdo do pai
+
+    def isright(self,nodule):
+        Confere se o no é filho direito do pai
+
+    def tree_search(self,i):
+        Retorna se existe o nó, se verdadeiro retorna o mesmo
+            
+    def tree_minimum(self,nodule):
+        Retorna nó minimo
+
+    def tree_maximum(self,nodule):
+        Retorna nó máximo
+
+    def tree_successor(self,nodule):
+        Retorna o successor
+
+    def tree_predecessor(self,nodule):
+        Retorna predecessor
+
+
+    def left_rotate(self,x):
+        Rotação a esquerda
+
+    def right_rotate(self,x):
+        Rotação a direita
+
+
