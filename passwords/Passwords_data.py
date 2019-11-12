@@ -106,7 +106,7 @@ class Binary_tree_Login:
                     z.getfather().getfather().color = 'RED'
                     z = z.getfather().getfather()
                 else:
-                    if self.isright(z):
+                    if self.isleft(z):
                         z = z.getfather()
                         self.right_rotate(z)
                     z.getfather().color = 'BLACK'
